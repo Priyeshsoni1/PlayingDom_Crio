@@ -213,4 +213,15 @@ for (let i=0;i<students.length;i++)
 }
 
 }
-loadTablefromJson()
+// loadTablefromJson()
+
+let showTableButton=document.querySelector('button');
+showTableButton.addEventListener('click',()=>{loadTablefromJson()})
+
+let nameInput=document.querySelector("input")
+nameInput.addEventListener("input",(event)=>{
+    let inputText=event.target.value;
+    document.querySelector("#name-display").innerText=inputText;
+
+
+})
