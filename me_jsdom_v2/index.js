@@ -71,20 +71,86 @@
 
 
 
-function loadTable() {
+// function loadTable() {
 
-    // Create <table> element with styles
+//     // Create <table> element with styles
   
+//     let table = document.createElement("table");
+  
+  
+//     table.setAttribute("border", "solid");
+  
+//     table.setAttribute("width", "400px");
+  
+  
+//     // Create header row and append it to the <table> element
+  
+//     let thead = document.createElement("thead");
+  
+//     thead.innerHTML = `
+  
+//       <tr>
+  
+//           <th>Id</th>
+  
+//           <th>Name</th>
+  
+//       </tr>
+  
+//     `;
+  
+//     table.append(thead);
+  
+  
+//     // Create body element
+  
+//     let tbody = document.createElement("tbody");
+  
+  
+//     // Create a table row and append it to the body
+  
+//     let tRow = document.createElement("tr");
+  
+  
+//     tRow.innerHTML = `
+  
+//       <td>1</td>
+  
+//       <td>Rajesh</td>
+  
+//     `;
+  
+  
+//     // Append <tr> element to <tbody>
+  
+//     tbody.appendChild(tRow);
+  
+  
+//     // Append <tbody> element to <table>
+  
+//     table.appendChild(tbody);
+  
+  
+//     // Set newly created <table> element inside the div container
+  
+//     document.getElementById("table-div").append(table);
+  
+//   }
+  
+  
+
+  
+// loadTable()
+
+function getStyleTable(){
     let table = document.createElement("table");
   
-  
-    table.setAttribute("border", "solid");
-  
-    table.setAttribute("width", "400px");
-  
-  
-    // Create header row and append it to the <table> element
-  
+      table.setAttribute("border", "solid");
+      table.setAttribute("width", "400px");
+      return table;
+}
+
+const getTableHeader=()=>{
     let thead = document.createElement("thead");
   
     thead.innerHTML = `
@@ -96,48 +162,37 @@ function loadTable() {
           <th>Name</th>
   
       </tr>
-  
-    `;
-  
-    table.append(thead);
-  
-  
-    // Create body element
-  
-    let tbody = document.createElement("tbody");
-  
-  
-    // Create a table row and append it to the body
-  
-    let tRow = document.createElement("tr");
-  
-  
-    tRow.innerHTML = `
-  
-      <td>1</td>
-  
-      <td>Rajesh</td>
-  
-    `;
-  
-  
-    // Append <tr> element to <tbody>
-  
-    tbody.appendChild(tRow);
-  
-  
-    // Append <tbody> element to <table>
-  
-    table.appendChild(tbody);
-  
-  
-    // Set newly created <table> element inside the div container
-  
-    document.getElementById("table-div").append(table);
-  
-  }
-  
-  
+      `
+      return thead
+}
 
-  
-loadTable()
+
+const getStudentTableRow=(id,name)=>{
+    let tbody=document.createElement("tbody");
+    tbody.innerHTML=`<tr><th>${id}</th> <th>${name}</th></tr>`
+    return tbody
+}
+
+
+
+
+function loadTableRefactored(){
+
+let table=getStyleTable();
+let tableHeader=getTableHeader();
+
+table.appendChild(tableHeader)
+
+
+let tableBody=getStudentTableRow("1","Ramesh")
+
+
+
+table.appendChild(tableBody)
+document.getElementById("table-div").append(table)
+
+
+}
+
+
+loadTableRefactored()
