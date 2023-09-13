@@ -176,23 +176,41 @@ const getStudentTableRow=(id,name)=>{
 
 
 
-function loadTableRefactored(){
+// function loadTableRefactored(){
 
-let table=getStyleTable();
+// let table=getStyleTable();
+// let tableHeader=getTableHeader();
+
+// table.appendChild(tableHeader)
+
+
+// let tableBody=getStudentTableRow("1","Ramesh")
+
+
+
+// table.appendChild(tableBody)
+// document.getElementById("table-div").append(table)
+
+
+// }
+
+
+// loadTableRefactored()
+
+function loadTablefromJson()
+{
+    let table=getStyleTable();
 let tableHeader=getTableHeader();
 
 table.appendChild(tableHeader)
 
-
-let tableBody=getStudentTableRow("1","Ramesh")
-
-
-
-table.appendChild(tableBody)
-document.getElementById("table-div").append(table)
-
-
+for (let i=0;i<students.length;i++)
+{
+    let student=students[i]
+    let tableBody=getStudentTableRow(student.id,student.name)
+ table.appendChild(tableBody)
+ document.getElementById("table-div").append(table)
 }
 
-
-loadTableRefactored()
+}
+loadTablefromJson()
